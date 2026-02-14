@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -56,15 +56,13 @@
             transition: all 0.3s ease;
             color: white;
         }
-        .contract-button:hover:not(:disabled) {
+        .contract-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
             background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.2));
         }
-        .contract-button:disabled { opacity: 0.3; cursor: not-allowed; }
         .contract-name { font-size: 1.3em; font-weight: bold; margin-bottom: 8px; }
         .contract-description { font-size: 0.9em; color: #f4e4a6; line-height: 1.4; margin-bottom: 8px; }
-        .contract-score { font-size: 1.1em; font-weight: bold; color: #dc143c; }
         .game-info {
             background: rgba(0, 0, 0, 0.4);
             padding: 20px;
@@ -79,20 +77,6 @@
         .info-item { text-align: center; }
         .info-label { font-size: 0.9em; color: #f4e4a6; margin-bottom: 5px; }
         .info-value { font-size: 1.5em; font-weight: bold; color: #d4af37; }
-        .bidding-status { background: rgba(0,0,0,0.4); padding: 20px; border-radius: 10px; margin-bottom: 20px; }
-        .bidding-title { color: #d4af37; margin-bottom: 15px; text-align: center; font-size: 1.3em; }
-        .bidding-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
-        .bidder-card {
-            background: rgba(0,0,0,0.3);
-            padding: 15px;
-            border-radius: 8px;
-            border: 2px solid transparent;
-            text-align: center;
-        }
-        .bidder-card.active { background: rgba(212, 175, 55, 0.2); border-color: #d4af37; }
-        .bidder-name { font-weight: bold; margin-bottom: 8px; color: #d4af37; }
-        .bidder-status { font-size: 0.9em; }
-        .action-buttons { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
         .action-button {
             background: linear-gradient(135deg, #d4af37, #c09a2e);
             border: none;
@@ -106,8 +90,6 @@
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
         }
         .action-button:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(212, 175, 55, 0.6); }
-        .action-button.double { background: linear-gradient(135deg, #ff8844, #ff4444); }
-        .action-button.redouble { background: linear-gradient(135deg, #ff4444, #cc0000); }
         .game-board {
             display: grid;
             grid-template-areas: 
@@ -123,7 +105,6 @@
             padding: 12px;
             border: 2px solid rgba(212, 175, 55, 0.2);
         }
-        .player-area.active { border-color: #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.5); }
         .player-area.dealer { border-color: #4169e1; box-shadow: 0 0 20px rgba(65, 105, 225, 0.4); }
         .player-info {
             display: flex;
@@ -166,12 +147,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
             transition: all 0.3s ease;
-            border: 2px solid transparent;
         }
-        .card:hover { transform: translateY(-6px); }
-        .card.playable { border-color: #32cd32; box-shadow: 0 0 12px rgba(50, 205, 50, 0.5); }
         .card.red { color: #dc143c; }
         .card.black { color: #1a1a1a; }
         .card-rank { font-size: 0.9em; font-weight: bold; margin-bottom: 2px; }
@@ -188,55 +165,10 @@
             color: rgba(255, 255, 255, 0.2);
             font-size: 1.5em;
         }
-        /* Larger cards for player (You) */
-        #player0 .card {
-            width: 70px;
-            height: 98px;
-        }
-        #player0 .card-rank {
-            font-size: 1.5em;
-        }
-        #player0 .card-suit {
-            font-size: 1.8em;
-        }
-        #player0 .cards-container {
-            gap: 6px;
-        }
-        .trick-area { grid-area: center; display: flex; align-items: center; justify-content: center; min-height: 200px; }
-        .trick-cards {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            padding: 30px;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 20px;
-            border: 3px dashed rgba(212, 175, 55, 0.3);
-        }
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-        .modal {
-            background: linear-gradient(135deg, #062318, #0a4d2e);
-            padding: 40px;
-            border-radius: 20px;
-            border: 3px solid #d4af37;
-            max-width: 600px;
-            width: 90%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
-        }
-        .modal h2 { font-size: 2.5em; color: #d4af37; margin-bottom: 20px; text-align: center; }
-        .score-table table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        .score-table th, .score-table td { padding: 12px; text-align: center; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
-        .score-table th { background: rgba(212, 175, 55, 0.2); color: #d4af37; font-weight: bold; }
+        #player0 .card { width: 70px; height: 98px; }
+        #player0 .card-rank { font-size: 1.5em; }
+        #player0 .card-suit { font-size: 1.8em; }
+        #player0 .cards-container { gap: 6px; }
         .hidden { display: none; }
     </style>
 </head>
@@ -246,105 +178,197 @@
             <h1 class="game-title">Barbu</h1>
             <div class="game-subtitle">Classic Four-Player Card Game</div>
         </div>
-        <div id="message" class="message-box">Loading game...</div>
+        <div id="message" class="message-box">Initializing...</div>
         <div id="contractSelection" class="contract-selection hidden"></div>
-        <div id="biddingPhase" class="hidden"></div>
         <div id="gamePlay" class="hidden"></div>
-        <div id="gameOver" class="modal-overlay hidden"></div>
     </div>
     <script>
-        const gameState = {
-            state: 'initial',
+        console.log('Script starting...');
+        
+        var gameState = {
             round: 1,
             dealer: 0,
-            currentPlayer: 0,
-            selectedContract: null,
-            usedContracts: [[], [], [], []],
-            doublesGivenToDealer: [0, 0, 0, 0],
             players: [
-                { name: 'You', cards: [], score: 0, tricks: 0 },
-                { name: 'Player 2', cards: [], score: 0, tricks: 0 },
-                { name: 'Player 3', cards: [], score: 0, tricks: 0 },
-                { name: 'Player 4', cards: [], score: 0, tricks: 0 }
-            ],
-            currentTrick: [],
-            trumpSuit: null,
-            trickNumber: 0,
-            bidding: {
-                doubles: [false, false, false, false],
-                redoubles: [false, false, false, false],
-                currentBidder: null,
-                complete: false
-            }
+                { name: 'You', cards: [], score: 0 },
+                { name: 'Player 2', cards: [], score: 0 },
+                { name: 'Player 3', cards: [], score: 0 },
+                { name: 'Player 4', cards: [], score: 0 }
+            ]
         };
-        const SUITS = {
+        
+        var SUITS = {
             HEARTS: { symbol: '♥', name: 'Hearts', color: 'red' },
             DIAMONDS: { symbol: '♦', name: 'Diamonds', color: 'red' },
             CLUBS: { symbol: '♣', name: 'Clubs', color: 'black' },
             SPADES: { symbol: '♠', name: 'Spades', color: 'black' }
         };
-        const CONTRACTS = {
-            NO_TRICKS: { name: 'No Tricks', description: 'Each trick = -2 points', score: -26 },
-            NO_HEARTS: { name: 'No Hearts', description: 'Each heart = -2, Ace = -6', score: -30 },
-            NO_QUEENS: { name: 'No Queens', description: 'Each queen = -6 points', score: -24 },
-            BARBU: { name: 'Barbu', description: 'King of hearts = -20 points', score: -20 },
-            LAST_TWO: { name: 'Last Two', description: 'Trick 12 = -10, Trick 13 = -20', score: -30 },
-            TRUMPS: { name: 'Trumps', description: 'Each trick = +5 points', score: 65 },
-            DOMINO: { name: 'Domino', description: '1st +45, 2nd +20, 3rd +5, 4th -5', score: 65 }
+        
+        var CONTRACTS = {
+            NO_TRICKS: { name: 'No Tricks', description: 'Each trick = -2 points' },
+            NO_HEARTS: { name: 'No Hearts', description: 'Each heart = -2, Ace = -6' },
+            NO_QUEENS: { name: 'No Queens', description: 'Each queen = -6 points' },
+            BARBU: { name: 'Barbu', description: 'King of hearts = -20 points' },
+            LAST_TWO: { name: 'Last Two', description: 'Trick 12 = -10, Trick 13 = -20' },
+            TRUMPS: { name: 'Trumps', description: 'Each trick = +5 points' },
+            DOMINO: { name: 'Domino', description: '1st +45, 2nd +20, 3rd +5, 4th -5' }
         };
+        
         function createDeck() {
-            const deck = [];
-            const ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
-            for (let suit in SUITS) {
-                for (let rank of ranks) {
-                    deck.push({ suit, rank, id: `${rank}_${suit}` });
+            console.log('Creating deck...');
+            var deck = [];
+            var ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+            for (var suitKey in SUITS) {
+                for (var i = 0; i < ranks.length; i++) {
+                    deck.push({ suit: suitKey, rank: ranks[i], id: ranks[i] + '_' + suitKey });
                 }
             }
-            return shuffleDeck(deck);
-        }
-        function shuffleDeck(deck) {
-            for (let i = deck.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [deck[i], deck[j]] = [deck[j], deck[i]];
+            for (var i = deck.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = deck[i];
+                deck[i] = deck[j];
+                deck[j] = temp;
             }
+            console.log('Deck created with ' + deck.length + ' cards');
             return deck;
         }
+        
         function dealCards() {
-            const deck = createDeck();
-            for (let i = 0; i < 4; i++) {
+            console.log('Dealing cards...');
+            var deck = createDeck();
+            for (var i = 0; i < 4; i++) {
                 gameState.players[i].cards = deck.slice(i * 13, (i + 1) * 13);
-                gameState.players[i].tricks = 0;
             }
             sortPlayerCards(0);
+            console.log('Cards dealt. Player has ' + gameState.players[0].cards.length + ' cards');
         }
         
         function sortPlayerCards(playerIndex) {
-            const suitOrder = { SPADES: 0, HEARTS: 1, CLUBS: 2, DIAMONDS: 3 };
-            const rankValues = { 'A': 14, 'K': 13, 'Q': 12, 'J': 11, '10': 10, '9': 9, '8': 8, '7': 7, '6': 6, '5': 5, '4': 4, '3': 3, '2': 2 };
+            var suitOrder = { SPADES: 0, HEARTS: 1, CLUBS: 2, DIAMONDS: 3 };
+            var rankValues = { 'A': 14, 'K': 13, 'Q': 12, 'J': 11, '10': 10, '9': 9, '8': 8, '7': 7, '6': 6, '5': 5, '4': 4, '3': 3, '2': 2 };
             
-            gameState.players[playerIndex].cards.sort((a, b) => {
+            gameState.players[playerIndex].cards.sort(function(a, b) {
                 if (suitOrder[a.suit] !== suitOrder[b.suit]) {
                     return suitOrder[a.suit] - suitOrder[b.suit];
                 }
                 return rankValues[b.rank] - rankValues[a.rank];
             });
         }
+        
         function showMessage(msg) {
             document.getElementById('message').textContent = msg;
-            document.getElementById('message').classList.remove('hidden');
         }
-        function hideAllSections() {
-            document.getElementById('contractSelection').classList.add('hidden');
-            document.getElementById('biddingPhase').classList.add('hidden');
+        
+        function showCardsBeforeContract() {
+            console.log('Showing cards before contract...');
+            try {
+                document.getElementById('contractSelection').classList.add('hidden');
+                document.getElementById('gamePlay').classList.remove('hidden');
+                
+                showMessage('Round ' + gameState.round + ' - Review your cards');
+                
+                var html = '<div class="game-info">';
+                html += '<div class="info-item"><div class="info-label">Round</div><div class="info-value">' + gameState.round + '/28</div></div>';
+                html += '<div class="info-item"><div class="info-label">You are Dealer</div><div class="info-value">Choose Contract</div></div>';
+                html += '</div>';
+                
+                html += '<div class="game-board">';
+                html += '<div style="grid-area: opponent2" id="player2"></div>';
+                html += '<div style="grid-area: opponent1" id="player1"></div>';
+                html += '<div style="grid-area: center; display:flex; align-items:center; justify-content:center;">';
+                html += '<div style="text-align:center;padding:40px;color:#d4af37;font-size:1.3em;">Review your cards, then select a contract below</div>';
+                html += '</div>';
+                html += '<div style="grid-area: opponent3" id="player3"></div>';
+                html += '<div style="grid-area: player" id="player0"></div>';
+                html += '</div>';
+                
+                html += '<div style="text-align:center;margin-top:20px;">';
+                html += '<button class="action-button" onclick="showContractSelection()">Choose Contract</button>';
+                html += '</div>';
+                
+                document.getElementById('gamePlay').innerHTML = html;
+                
+                for (var i = 0; i < 4; i++) {
+                    var container = document.getElementById('player' + i);
+                    var player = gameState.players[i];
+                    var isDealer = i === gameState.dealer;
+                    
+                    var playerHtml = '<div class="player-area' + (isDealer ? ' dealer' : '') + '">';
+                    playerHtml += '<div class="player-info">';
+                    playerHtml += '<div class="player-name">' + player.name;
+                    if (isDealer) playerHtml += '<span class="dealer-badge">Dealer</span>';
+                    playerHtml += '</div>';
+                    playerHtml += '<div class="player-score">' + player.score + '</div>';
+                    playerHtml += '</div>';
+                    playerHtml += '<div class="cards-container">';
+                    
+                    for (var j = 0; j < player.cards.length; j++) {
+                        var card = player.cards[j];
+                        if (i === 0) {
+                            var suit = SUITS[card.suit];
+                            playerHtml += '<div class="card ' + suit.color + '">';
+                            playerHtml += '<div class="card-rank">' + card.rank + '</div>';
+                            playerHtml += '<div class="card-suit">' + suit.symbol + '</div>';
+                            playerHtml += '</div>';
+                        } else {
+                            playerHtml += '<div class="card-back">♠</div>';
+                        }
+                    }
+                    
+                    playerHtml += '</div></div>';
+                    container.innerHTML = playerHtml;
+                }
+                
+                console.log('Cards displayed successfully');
+            } catch (e) {
+                console.error('Error showing cards:', e);
+                showMessage('Error: ' + e.message);
+            }
+        }
+        
+        function showContractSelection() {
+            console.log('Showing contract selection...');
             document.getElementById('gamePlay').classList.add('hidden');
-        }
-        function startRound() {
-            dealCards();
-            gameState.currentTrick = [];
-            gameState.trickNumber = 0;
-            gameState.state = 'viewing-cards';
+            document.getElementById('contractSelection').classList.remove('hidden');
             
-            if (gameState.dealer === 0) {
+            showMessage('Round ' + gameState.round + ' - Choose your contract');
+            
+            var html = '<h2 class="contract-title">Choose Contract</h2>';
+            html += '<div class="contract-grid">';
+            
+            for (var key in CONTRACTS) {
+                var contract = CONTRACTS[key];
+                html += '<div class="contract-button" onclick="alert(\'Selected: ' + contract.name + '\')">';
+                html += '<div class="contract-name">' + contract.name + '</div>';
+                html += '<div class="contract-description">' + contract.description + '</div>';
+                html += '</div>';
+            }
+            
+            html += '</div>';
+            document.getElementById('contractSelection').innerHTML = html;
+        }
+        
+        function startGame() {
+            console.log('Starting game...');
+            try {
+                showMessage('Dealing cards...');
+                dealCards();
+                showMessage('Cards dealt!');
                 showCardsBeforeContract();
-            } else {
-                showMessage(`Wa
+            } catch (e) {
+                console.error('Error starting game:', e);
+                showMessage('Error starting game: ' + e.message);
+            }
+        }
+        
+        window.showContractSelection = showContractSelection;
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', startGame);
+        } else {
+            startGame();
+        }
+        
+        console.log('Script loaded successfully');
+    </script>
+</body>
+</html>
